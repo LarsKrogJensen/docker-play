@@ -1,0 +1,11 @@
+docker run --name my-postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -p5432:5432 -v /var/lib/postgresql/data:/home/core/data/postgres --restart always -d postgres
+docker run  -d -p9000:9000  -v /var/run/docker.sock:/var/run/docker.sock -v /home/core/data/portainer:/data --name portainer --restart always portainer/portainer
+docker run -d --name influx --restart always -p8083:8083 -p8086:8086 -v/home/core/data/influxdb/:/var/lib/influxdb  influxdb
+docker run -d --name grafana --restart always -p3000:3000 -v /var/lib/grafana:/home/core/data/grafana -v /etc/grafana/:/home/core/config/grafana  grafana/grafana
+
+
+upgrade:
+docker stop xxxx
+docker rm xxxxx
+docker pull xxxx
+
