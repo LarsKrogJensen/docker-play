@@ -3,7 +3,7 @@ docker run  -d -p9000:9000  -v /var/run/docker.sock:/var/run/docker.sock -v /hom
 docker run -d --name influx --restart always -p8083:8083 -p8086:8086 -v/home/core/data/influxdb/:/var/lib/influxdb  influxdb
 docker run -d --name grafana --restart always -p3000:3000 -v /var/lib/grafana:/home/core/data/grafana -v /etc/grafana/:/home/core/config/grafana  grafana/grafana
 
-
+docker run -d --name mongo --restart always -p27017:27017  -v/home/core/data/mongodb/:/data/db  mongo 
 upgrade:
 docker stop xxxx
 docker rm xxxxx
